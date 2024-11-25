@@ -1,23 +1,17 @@
+//--- STORE/index.js
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { store } from './store'; // dette står ikke i step7!
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { BrowserRouter } from 'react-router-dom'    // step 16
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+const el = document.getElementById('root');
+const root = createRoot(el);
 
 root.render(
-  <React.StrictMode>
+    <BrowserRouter>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+   </BrowserRouter>);
